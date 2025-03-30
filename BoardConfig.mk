@@ -126,3 +126,7 @@ TW_INCLUDE_CRYPTO := true
 BOARD_RAMDISK_USE_LZ4 := true
 TW_NEVER_UNMOUNT_SYSTEM := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+
+#Properties
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
