@@ -1,20 +1,20 @@
-/system                   ext4     system                                    flags=display=system;logical;slotselect
-/vendor                   ext4     vendor                                    flags=display=vendor;logical;slotselect
-/product                  ext4     product                                   flags=display=product;logical;slotselect
-/odm                      ext4     odm                                       flags=display=odm;logical;slotselect
-/my_product               ext4     my_product                                flags=display=my_product;logical;slotselect
-/my_engineering           ext4     my_engineering                            flags=display=my_engineering;logical;slotselect
-/my_company               ext4     my_company                                flags=display=my_company;logical;slotselect
-/my_carrier               ext4     my_carrier                                flags=display=my_carrier;logical;slotselect
-/my_region                ext4     my_region                                 flags=display=my_region;logical;slotselect
-/my_heytap                ext4     my_heytap                                 flags=display=my_heytap;logical;slotselect
-/my_stock                 ext4     my_stock                                  flags=display=my_stock;logical;slotselect
-/my_preload               ext4     my_preload                                flags=display=my_preload;logical;slotselect
-/my_bigball               ext4     my_bigball                                flags=display=my_bigball;logical;slotselect
-/my_manifest              ext4     my_manifest                               flags=display=my_manifest;logical;slotselect
+/system                   ext4     system                                    flags=display=system;logical;slotselect;backup=1;flashimg
+/vendor                   ext4     vendor                                    flags=display=vendor;logical;slotselect;backup=1;flashimg
+/product                  ext4     product                                   flags=display=product;logical;slotselect;backup=1;flashimg
+/odm                      ext4     odm                                       flags=display=odm;logical;slotselect;backup=1;flashimg
+/my_product               ext4     my_product                                flags=display=my_product;logical;slotselect;backup=1;flashimg
+/my_engineering           ext4     my_engineering                            flags=display=my_engineering;logical;slotselect;backup=1;flashimg
+/my_company               ext4     my_company                                flags=display=my_company;logical;slotselect;backup=1;flashimg
+/my_carrier               ext4     my_carrier                                flags=display=my_carrier;logical;slotselect;backup=1;flashimg
+/my_region                ext4     my_region                                 flags=display=my_region;logical;slotselect;backup=1;flashimg
+/my_heytap                ext4     my_heytap                                 flags=display=my_heytap;logical;slotselect;backup=1;flashimg
+/my_stock                 ext4     my_stock                                  flags=display=my_stock;logical;slotselect;backup=1;flashimg
+/my_preload               ext4     my_preload                                flags=display=my_preload;logical;slotselect;backup=1;flashimg
+/my_bigball               ext4     my_bigball                                flags=display=my_bigball;logical;slotselect;backup=1;flashimg
+/my_manifest              ext4     my_manifest                               flags=display=my_manifest;logical;slotselect;backup=1;flashimg
 /cdt_engineering          emmc     /dev/block/by-name/cdt_engineering        flags=display=cdt_engineering
-/vbmeta_vendor            emmc     /dev/block/by-name/vbmeta_vendor          flags=display=vbmeta_vendor;slotselect
-/vbmeta_system            emmc     /dev/block/by-name/vbmeta_system          flags=display=vbmeta_system;slotselect
+/vbmeta_vendor            emmc     /dev/block/by-name/vbmeta_vendor          flags=display=vbmeta_vendor;slotselect;backup=1;flashimg
+/vbmeta_system            emmc     /dev/block/by-name/vbmeta_system          flags=display=vbmeta_system;slotselect;backup=1;flashimg
 /cache                    ext4     /dev/block/by-name/oplusreserve2          flags=display=cache
 /data                     f2fs     /dev/block/by-name/userdata               flags=display=data
 /metadata                 ext4     /dev/block/by-name/md_udc                 flags=display=metadata
@@ -31,7 +31,7 @@ auto                      vfat     /devices/platform/11200000.usb3_xhci*     fla
 /bootloader2              emmc     /dev/block/by-name/lk2                    flags=display=bootloader2
 /para                     emmc     /dev/block/by-name/para                   flags=display=para
 /misc                     emmc     /dev/block/by-name/misc                   flags=display=misc
-/boot                     emmc     /dev/block/by-name/boot                   flags=display=boot
+/boot                     emmc     /dev/block/by-name/boot                   flags=display=boot;slotselect;backup=1;flashimg
 /recovery                 emmc     /dev/block/by-name/recovery               flags=display=recovery
 /logo                     emmc     /dev/block/by-name/logo                   flags=display=logo
 /expdb                    emmc     /dev/block/by-name/expdb                  flags=display=expdb
@@ -63,8 +63,13 @@ auto                      vfat     /devices/platform/11200000.usb3_xhci*     fla
 /dtbo                     emmc     /dev/block/by-name/dtbo                   flags=display=dtbo
 /otp                      emmc     /dev/block/by-name/otp                    flags=display=otp
 /custom                   ext4     /dev/block/by-name/odm                    flags=display=custom
-/external_sd              vfat     /dev/block/mmcblk0p1                      flags=display=external_sd
-/usb_otg                  vfat     /dev/block/sdd1                           flags=display=usb_otg
+/external_sd              vfat     /dev/block/mmcblk0p1                      flags=display=external_sd;storage;wipeingui;removable
+/usb_otg                  auto     /dev/block/sdd1                           flags=display="USB-OTG";storage;wipeingui;removable
 /vbmeta                   emmc     /dev/block/by-name/vbmeta                 flags=display=vbmeta
 /reserve2                 emmc     /dev/block/by-name/reserve2               flags=display=reserve2
 /opporeserve              ext4     /dev/block/by-name/oplusreserve2          flags=display=opporeserve
+
+
+/usb-otg    auto        /dev/block/sda1    /dev/block/sda                flags=
+
+
